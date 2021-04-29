@@ -1,0 +1,30 @@
+$bg: #0e0e14;
+$text: #fefefe;
+
+@mixin Interactable {
+  cursor: pointer;
+  transition: all ease-in-out 200ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 5px $text);
+  }
+}
+
+.container {
+  background: $bg;
+  height: 5.5rem;
+  display: flex;
+  padding: 1rem 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  
+  h1 {
+    margin: unset;
+    @include Interactable();
+  }
+
+  .infoButton {
+    width: 1.5rem;
+    @include Interactable();
+  }
+}

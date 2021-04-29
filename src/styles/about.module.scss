@@ -1,0 +1,46 @@
+$link: #e1c6ff;
+$link-hover: #9147e5;
+
+.container {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: unset;
+  }
+
+  p {
+    margin: unset;
+  }
+
+  .prodAbout {
+    display: flex;
+    justify-content: center;
+
+    .info {
+      margin-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      .disclaimer {
+        width: 30rem;
+  
+        p {    
+          a {
+            text-decoration: none;
+            color: $link;
+            transition: all ease-in-out 200ms;
+  
+            &:hover {
+              color: $link-hover
+            }
+          }
+        }
+      }
+    }
+  }
+}
