@@ -13,7 +13,12 @@ export default function About(): unknown {
 
       <main className={Style.container}>
         <section className={Style.prodAbout}>
-          <Image src='/images/logo.png' width={200} height={200} />
+          <Image
+            src='/images/logo.png'
+            width={200}
+            height={200}
+            className={Style.image}
+          />
 
           <div className={Style.info}>
             <div className={Style.prodName}>
