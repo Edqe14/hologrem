@@ -7,6 +7,10 @@ module.exports = withPWA({
   webpack(config, options) {
     const { webpack } = options;
 
+    config.node = {
+      __dirname: true,
+    };
+
     // Define value to inject
     config.plugins.push(
       new webpack.DefinePlugin({

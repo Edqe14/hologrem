@@ -4,7 +4,7 @@
   "description": "Collection of Hololive Gremlins",
   "theme_color": "#2196f3",
   "background_color": "#202020",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
