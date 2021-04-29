@@ -1,0 +1,32 @@
+$bg: #14141975;
+
+.imageContainer {
+  background: $bg;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .copyWrapper {
+    position: absolute;
+    background-color: $bg;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all ease-in-out 200ms;
+    pointer-events: none;
+  }
+
+  &:hover {
+    .copyWrapper {
+      opacity: 80;
+    }
+  }
+}
