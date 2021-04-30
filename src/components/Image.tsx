@@ -1,19 +1,10 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { ReactElement, useState } from 'react';
 import NextImage from 'next/image';
 
 import Style from '@styles/image.module.scss';
 
 export default function ReactImage({ src }: { src: string }): ReactElement {
-  const [dimension, setDimension] = useState([0, 0]);
-
-  useEffect(() => {
-    const image = new Image();
-    image.setAttribute('decoding', 'async');
-    image.addEventListener('load', () => {
-      setDimension([image.width, image.height]);
-    });
-    image.src = src;
-  }, []);
+  const [dimension] = useState([750, 420]);
 
   const [copyState, setCopyState] = useState('Click to copy');
   const copyToClipboard = async () => {
