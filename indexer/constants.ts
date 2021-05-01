@@ -67,7 +67,7 @@ export const Expression = [
   'Neutral',
   'Happy',
   'Sad',
-  'Gloomy',
+  'Scared',
   'Yabai',
   'Surprised',
   'Smug',

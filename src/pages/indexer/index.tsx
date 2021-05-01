@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import Head from '@components/Head';
 import Header from '@components/Header';
 import IndexView from '@components/IndexView';
@@ -29,11 +29,33 @@ export default function Indexer({
   const [character, setCharacter] = useState([]);
   const [expression, setExpression] = useState([]);
 
+  // 0 idle
+  // 1 error
+  // 2 success
+  // 3 not saved
+  const [saveState, setSaveState] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', (ev: BeforeUnloadEvent) => {
+      if (saveState === 3) {
+        ev.preventDefault();
+        ev.returnValue = '';
+        return ev.returnValue;
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head />
 
-      <Header indexer={true} port={BACKEND_PORT} />
+      <Header
+        indexer={true}
+        port={BACKEND_PORT}
+        list={list}
+        saveState={saveState}
+        setSaveState={setSaveState}
+      />
 
       <main className={Style.container}>
         <IndexView
@@ -48,6 +70,8 @@ export default function Indexer({
           setCharacter={setCharacter}
           expression={expression}
           setExpression={setExpression}
+          saveState={saveState}
+          setSaveState={setSaveState}
         />
         <IndexList
           list={list}

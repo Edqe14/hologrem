@@ -24,6 +24,8 @@ interface Props {
   setCharacter: Dispatch<SetStateAction<number[]>>;
   expression: number[];
   setExpression: Dispatch<SetStateAction<number[]>>;
+  saveState: number;
+  setSaveState: Dispatch<SetStateAction<number>>;
 }
 
 const updateInfo = async (
@@ -58,6 +60,8 @@ export default function IndexView({
   setCharacter,
   expression,
   setExpression,
+  saveState,
+  setSaveState,
 }: Props): ReactElement {
   const updateEntry = async () => {
     if (!character.length || !expression.length)
@@ -81,6 +85,8 @@ export default function IndexView({
     val?: number[],
     ev?: BaseSyntheticEvent
   ) => {
+    if (saveState !== 3) setSaveState(3);
+
     let value: number;
     if (ev.type === 'change') {
       const i = ev.target.selectedIndex;

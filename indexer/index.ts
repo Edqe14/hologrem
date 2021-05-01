@@ -30,9 +30,13 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(Routes(indexes, files, config));
-app.put('/dump', (req, res) => {
+app.put('/dump', async (req, res) => {
   try {
-    fs.writeFileSync(indexPath, JSON.stringify(indexes));
+    await fs.promises.writeFile(indexPath, JSON.stringify(indexes));
+    await fs.promises.copyFile(
+      indexPath,
+      path.join(__dirname, '..', 'src', 'public', 'index.json')
+    );
     return res.json({
       message: 'Success',
     });
