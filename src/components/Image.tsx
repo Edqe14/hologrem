@@ -3,8 +3,20 @@ import NextImage from 'next/image';
 
 import Style from '@styles/image.module.scss';
 
-export default function ReactImage({ src }: { src: string }): ReactElement {
-  const [dimension] = useState([750, 420]);
+interface Props {
+  src: string;
+  width?: number;
+  height?: number;
+  className?: unknown;
+}
+
+export default function ReactImage({
+  src,
+  width = 750,
+  height = 420,
+  className,
+}: Props): ReactElement {
+  const [dimension] = useState([width, height]);
 
   const [copyState, setCopyState] = useState('Click to copy');
   const copyToClipboard = async () => {
@@ -37,7 +49,7 @@ export default function ReactImage({ src }: { src: string }): ReactElement {
         src={src}
         width={dimension[0]}
         height={dimension[1]}
-        className={Style.image}
+        className={`${Style.image} ${className}`}
         draggable={false}
       />
     </div>

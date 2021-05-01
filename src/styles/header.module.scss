@@ -1,5 +1,6 @@
 $bg: #0e0e14;
 $text: #fefefe;
+$button: #106de8;
 
 @mixin Interactable {
   cursor: pointer;
@@ -18,6 +19,7 @@ $text: #fefefe;
   align-items: center;
   justify-content: space-between;
   width: 100% !important;
+  z-index: 5;
   
   h1 {
     margin: unset;
@@ -26,6 +28,18 @@ $text: #fefefe;
 
   .infoButton {
     width: 1.5rem;
+    @include Interactable();
+  }
+
+  .dumpButton {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: $button;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: $text;
+    padding: 0.5rem 1.5rem;
     @include Interactable();
   }
 }
