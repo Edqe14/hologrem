@@ -1,0 +1,90 @@
+$select: #0e0e14;
+$text: #fefefe;
+$button: #106de8;
+$button-hover: #1560c4;
+$selection: #3c4144;
+
+.container {
+  min-width: calc(100% - 28rem);
+  height: calc(100vh - 5.5rem);
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: minmax(15rem, 1fr) 1fr;
+  grid-gap: 2rem;
+
+  .properties {
+    .selection {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+      .label {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+
+      .selected {
+        width: 100%;
+        display: flex;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        
+        .selection {
+          margin: unset;
+          font-size: 0.8rem;
+          display: flex;
+          flex-direction: row;
+          justify-items: center;
+          align-items: center;
+          background: $selection;
+          padding: 4px 8px;
+          border-radius: 50px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+
+          .close {
+            width: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: none;
+          }
+
+          &:hover {
+            .close {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .select {
+        outline: none;
+        color: $text;
+        background: $select;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+      }
+    }
+
+    .update {
+      outline: none;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      color: $text;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      background: $button;
+      border: none;
+      cursor: pointer;
+      transition: all ease-in-out 200ms;
+      margin-top: auto;
+
+      &:hover {
+        background: $button-hover;
+      }
+    }
+  }
+}
