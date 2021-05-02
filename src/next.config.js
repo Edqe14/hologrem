@@ -15,6 +15,7 @@ module.exports = withPWA({
     config.plugins.push(
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(version),
+        BACKEND_PORT: 3001,
       })
     );
 

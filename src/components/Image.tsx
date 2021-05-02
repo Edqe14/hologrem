@@ -1,21 +1,25 @@
-import { ReactElement, useState } from 'react';
+import {
+  DetailedHTMLProps,
+  ImgHTMLAttributes,
+  ReactElement,
+  useState,
+} from 'react';
 import NextImage from 'next/image';
 
 import Style from '@styles/image.module.scss';
 
-interface Props {
-  src: string;
-  width?: number;
-  height?: number;
-  className?: unknown;
+interface Props
+  extends DetailedHTMLProps<
+    ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  > {
+  character?: string[];
+  expression?: string[];
 }
 
-export default function ReactImage({
-  src,
-  width = 750,
-  height = 420,
-  className,
-}: Props): ReactElement {
+export default function ReactImage(props: Props): ReactElement {
+  const { src, width = 750, height = 420, character, expression } = props;
+
   const [dimension] = useState([width, height]);
 
   const [copyState, setCopyState] = useState('Click to copy');
@@ -42,14 +46,28 @@ export default function ReactImage({
       onClick={copyToClipboard}
     >
       <div className={Style.copyWrapper}>
+        {character ? (
+          <div className={Style.character}>
+            {character.map((c, i) => (
+              <span key={i}>{c}</span>
+            ))}
+          </div>
+        ) : null}
         <span className={Style.copy}>{copyState}</span>
+        {expression ? (
+          <div className={Style.expression}>
+            {expression.map((c, i) => (
+              <span key={i}>{c}</span>
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <NextImage
         src={src}
         width={dimension[0]}
         height={dimension[1]}
-        className={`${Style.image} ${className}`}
+        className={props.className}
         draggable={false}
       />
     </div>

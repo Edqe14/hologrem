@@ -1,7 +1,7 @@
 export interface Index {
   file: string;
   character: number[];
-  expression?: number[];
+  expression: number[];
 }
 
 export interface Config {

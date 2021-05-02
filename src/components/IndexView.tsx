@@ -5,6 +5,7 @@ import {
   SetStateAction,
 } from 'react';
 import Image from '@components/Image';
+import Select from './Select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -143,9 +144,8 @@ export default function IndexView({
             ))}
           </div>
 
-          <select
+          <Select
             name='character'
-            className={Style.select}
             onChange={updateValue.bind(this, 0, null)}
             value={-1}
           >
@@ -170,7 +170,7 @@ export default function IndexView({
                 })}
               </>
             ))}
-          </select>
+          </Select>
         </div>
 
         <div className={Style.selection}>
@@ -195,9 +195,8 @@ export default function IndexView({
             ))}
           </div>
 
-          <select
+          <Select
             name='expression'
-            className={Style.select}
             onChange={updateValue.bind(this, 1, null)}
             value={-1}
           >
@@ -209,12 +208,8 @@ export default function IndexView({
                 {k}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
-
-        {/* <button className={Style.update} onClick={updateEntry}>
-          Update
-        </button> */}
       </div>
     </section>
   );

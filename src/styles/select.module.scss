@@ -1,0 +1,13 @@
+$select: #0e0e14;
+$text: #fefefe;
+
+.select {
+  outline: none;
+  color: $text;
+  background: $select;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}

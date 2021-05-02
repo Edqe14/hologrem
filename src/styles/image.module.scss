@@ -1,4 +1,5 @@
 $bg: #14141975;
+$selection: #3c4144;
 
 .imageContainer {
   background: $bg;
@@ -17,11 +18,48 @@ $bg: #14141975;
     height: 100%;
     z-index: 5;
     display: flex;
-    align-items: center;
-    justify-content: center;
     opacity: 0;
     transition: all ease-in-out 200ms;
     pointer-events: none;
+
+    span {
+      align-self: center;
+      margin: 0 auto;
+      z-index: 5;
+    }
+
+    .character, .expression {
+      position: absolute;
+      margin: 5px;
+      width: 100%;
+      display: flex;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      
+      span {
+        margin: unset;
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        background: $selection;
+        padding: 4px 8px;
+        border-radius: 50px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .expression {
+      bottom: 0;
+      margin: 5px;
+
+      span {
+        margin: unset;
+        margin-right: 5px;
+      }
+    }
   }
 
   &:hover {

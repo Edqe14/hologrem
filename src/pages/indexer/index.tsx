@@ -6,8 +6,6 @@ import IndexList from '@components/IndexList';
 
 import Style from '@styles/indexer.module.scss';
 
-const BACKEND_PORT = 3001;
-
 interface Props {
   characters: string[];
   categories: Record<string, string[]>;
@@ -52,6 +50,8 @@ export default function Indexer({
 
       <Header
         indexer={true}
+        // @ts-expect-error Webpack
+        // eslint-disable-next-line no-undef
         port={BACKEND_PORT}
         list={list}
         saveState={saveState}
@@ -61,6 +61,8 @@ export default function Indexer({
       <main className={Style.container}>
         <IndexView
           file={file}
+          // @ts-expect-error Webpack
+          // eslint-disable-next-line no-undef
           port={BACKEND_PORT}
           list={list}
           setList={setList}
@@ -79,6 +81,8 @@ export default function Indexer({
           setFile={setFile}
           setCharacter={setCharacter}
           setExpression={setExpression}
+          // @ts-expect-error Webpack
+          // eslint-disable-next-line no-undef
           port={BACKEND_PORT}
         />
       </main>
@@ -88,13 +92,21 @@ export default function Indexer({
 
 export const getServerSideProps = async (): Promise<unknown> => {
   const [characters, categories, list, expressions] = await Promise.all([
+    // @ts-expect-error Webpack
+    // eslint-disable-next-line no-undef
     fetch(`http://localhost:${BACKEND_PORT}/characters`).then((res) =>
       res.json()
     ),
     fetch(
+      // @ts-expect-error Webpack
+      // eslint-disable-next-line no-undef
       `http://localhost:${BACKEND_PORT}/characters?category=1`
     ).then((res) => res.json()),
+    // @ts-expect-error Webpack
+    // eslint-disable-next-line no-undef
     fetch(`http://localhost:${BACKEND_PORT}/all`).then((res) => res.json()),
+    // @ts-expect-error Webpack
+    // eslint-disable-next-line no-undef
     fetch(`http://localhost:${BACKEND_PORT}/expressions`).then((res) =>
       res.json()
     ),
