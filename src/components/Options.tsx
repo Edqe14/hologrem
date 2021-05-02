@@ -172,6 +172,50 @@ export default function Options({
                 ))}
               </Select>
             </div>
+
+            <div className={Style.selection}>
+              <label className={Style.label}>Sort</label>
+
+              <div className={Style.sort}>
+                <div>
+                  <label htmlFor='sortBy' className={Style.sortSubtitle}>
+                    Sort By
+                  </label>
+
+                  <Select
+                    value={sortBy}
+                    onChange={(ev: BaseSyntheticEvent) => {
+                      const i = ev.target.selectedIndex;
+                      const value = parseInt(ev.target[i].value);
+                      if (isNaN(value)) return;
+                      setSortBy(value);
+                    }}
+                  >
+                    <option value='0'>Name</option>
+                    <option value='1'>Expression</option>
+                  </Select>
+                </div>
+
+                <div>
+                  <label htmlFor='sortOrder' className={Style.sortSubtitle}>
+                    Sort Order
+                  </label>
+
+                  <Select
+                    value={sortOrder}
+                    onChange={(ev: BaseSyntheticEvent) => {
+                      const i = ev.target.selectedIndex;
+                      const value = parseInt(ev.target[i].value);
+                      if (isNaN(value)) return;
+                      setSortOrder(value);
+                    }}
+                  >
+                    <option value='1'>Generation 0 - UP</option>
+                    <option value='-1'>UP - Generation 0</option>
+                  </Select>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

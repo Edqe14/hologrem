@@ -129,3 +129,29 @@ $selection: #3c4144;
     }
   }
 }
+
+.sort {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .options {
+    .content {
+      height: 100%;
+      width: 100%;
+      margin: unset;
+    }
+  }
+
+  .properties {
+    width: 90%;
+  }
+}
