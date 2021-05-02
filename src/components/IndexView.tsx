@@ -85,10 +85,7 @@ export default function IndexView({
     val?: number[],
     ev?: BaseSyntheticEvent
   ) => {
-    if (saveState !== 3) {
-      saveState = 3;
-      setSaveState(3);
-    }
+    if (saveState !== 3) setSaveState(3);
 
     let value: number;
     if (ev.type === 'change') {

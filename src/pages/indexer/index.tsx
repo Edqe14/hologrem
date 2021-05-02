@@ -33,6 +33,7 @@ export default function Indexer({
   // 1 error
   // 2 success
   // 3 not saved
+  // eslint-disable-next-line prefer-const
   const [saveState, setSaveState] = useState(0);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function Indexer({
         return ev.returnValue;
       }
     });
-  }, []);
+  }, [saveState]);
 
   return (
     <>
