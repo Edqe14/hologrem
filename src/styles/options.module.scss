@@ -132,7 +132,6 @@ $selection: #3c4144;
 
 .sort {
   display: flex;
-  flex-wrap: wrap;
 
   div {
     display: flex;
@@ -153,5 +152,10 @@ $selection: #3c4144;
 
   .properties {
     width: 90%;
+    overflow-y: scroll;
+  }
+
+  .sort {
+    flex-direction: column;
   }
 }
