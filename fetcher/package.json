@@ -13,7 +13,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "copy": "cp ./files/* ../src/public/grems"
+    "copy": "cp ./files/* ../src/original",
+    "all": "npm start && npm run copy"
   },
   "keywords": [],
   "author": "",

@@ -110,6 +110,7 @@ export default function Options({
                 name='character'
                 onChange={updateValue.bind(this, 0, null)}
                 value={-1}
+                key='0'
               >
                 <option value={-1} disabled>
                   Select character
@@ -161,6 +162,7 @@ export default function Options({
                 name='expression'
                 onChange={updateValue.bind(this, 1, null)}
                 value={-1}
+                key='1'
               >
                 <option value={-1} disabled>
                   Select expression

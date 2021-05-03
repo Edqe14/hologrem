@@ -1,9 +1,10 @@
 {
   "name": "hologrem",
-  "version": "0.1.0",
+  "version": "1.4.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "optimize": "node optimizeImages.js",
     "build": "next build",
     "start": "next start"
   },
@@ -15,7 +16,8 @@
     "next-pwa": "^5.2.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.32.12"
+    "sass": "^1.32.12",
+    "sharp": "^0.28.1"
   },
   "devDependencies": {
     "@types/node": "^15.0.1",
