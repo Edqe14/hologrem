@@ -1,5 +1,4 @@
 import {
-  BaseSyntheticEvent,
   DetailedHTMLProps,
   ImgHTMLAttributes,
   ReactElement,
