@@ -37,12 +37,15 @@ export default function Home({
   const [characterFilter, setCharacterFilter] = useState([]);
   const [expressionFilter, setExpressionFilter] = useState([]);
 
-  const filter = (i: Index) =>
-    (!characterFilter.length && !expressionFilter.length) ||
-    ((!characterFilter.length ||
-      i.character.some((c) => characterFilter.includes(c))) &&
+  const filter = (i: Index) => {
+    if (!characterFilter.length && !expressionFilter.length) return true;
+    return (
+      (!characterFilter.length ||
+        i.character.some((c) => characterFilter.includes(c))) &&
       (!expressionFilter.length ||
-        i.expression.some((e) => expressionFilter.includes(e))));
+        i.expression.some((e) => expressionFilter.includes(e)))
+    );
+  };
 
   const sort = (a: Index, b: Index) => {
     switch (sortBy) {
