@@ -1,5 +1,4 @@
 import {
-  BaseSyntheticEvent,
   DetailedHTMLProps,
   ImgHTMLAttributes,
   ReactElement,
@@ -24,12 +23,10 @@ export default function ReactImage(props: Props): ReactElement {
   const [dimension] = useState([width, height]);
 
   const [copyState, setCopyState] = useState('Click to copy');
-  const copyToClipboard = async (ev: BaseSyntheticEvent) => {
+  const copyToClipboard = async () => {
     // @ts-expect-error Missing
     if (!!navigator.clipboard && !!window.ClipboardItem) {
-      const blob = await fetch(ev?.target?.currentSrc ?? src).then((res) =>
-        res.blob()
-      );
+      const blob = await fetch(src).then((res) => res.blob());
       // @ts-expect-error Missing
       await navigator.clipboard.write([
         /* eslint-disable no-undef */
