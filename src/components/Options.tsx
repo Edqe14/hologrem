@@ -115,18 +115,18 @@ export default function Options({
                 <option value={-1} disabled>
                   Select character
                 </option>
-                {Object.keys(categories).map((k) => (
+                {Object.keys(categories).map((k, i) => (
                   <>
-                    <option value={-5} disabled>
+                    <option value={-5} key={i} disabled>
                       {k}
                     </option>
 
-                    {categories[k].map((c) => {
+                    {categories[k].map((c, ii) => {
                       const index = characters.indexOf(c);
                       if (index === -1) return;
 
                       return (
-                        <option value={index} key={index}>
+                        <option value={index} key={ii}>
                           {c}
                         </option>
                       );
