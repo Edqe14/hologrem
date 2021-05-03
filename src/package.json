@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "optimize": "node optimizeImages.js",
+    "build": "npm run optimize && next build",
     "start": "next start"
   },
   "dependencies": {
@@ -15,7 +16,8 @@
     "next-pwa": "^5.2.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.32.12"
+    "sass": "^1.32.12",
+    "sharp": "^0.28.1"
   },
   "devDependencies": {
     "@types/node": "^15.0.1",
