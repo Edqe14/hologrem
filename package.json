@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "cd fetcher && npm run all && cd .. && node src/optimizeImages.js && npm run spawn",
+    "spawn": "concurrently --kill-others \"npm run start:indexer\" \"npm run start:ui\"",
+    "start:indexer": "cd indexer && npm start",
+    "start:ui": "cd src && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  }
+}
