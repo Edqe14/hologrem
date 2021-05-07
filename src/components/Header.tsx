@@ -35,12 +35,12 @@ export default function Header({
       console.error('Failed while dumping', json);
 
       setSaveState(1);
-      setTimeout(setSaveState.bind(this, 0), 3000);
+      setTimeout(() => setSaveState(0), 3000);
     } else {
       console.log('Dump successful');
 
       setSaveState(2);
-      setTimeout(setSaveState.bind(this, 0), 3000);
+      setTimeout(() => setSaveState(0), 3000);
     }
   };
 

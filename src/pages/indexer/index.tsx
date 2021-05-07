@@ -31,17 +31,19 @@ export default function Indexer({
   // 1 error
   // 2 success
   // 3 not saved
-  // eslint-disable-next-line prefer-const
   const [saveState, setSaveState] = useState(0);
 
   useEffect(() => {
-    window.addEventListener('beforeunload', (ev: BeforeUnloadEvent) => {
+    const func = (ev: BeforeUnloadEvent) => {
       if (saveState === 3) {
         ev.preventDefault();
         ev.returnValue = '';
         return ev.returnValue;
       }
-    });
+    };
+
+    window.addEventListener('beforeunload', func);
+    return () => window.removeEventListener('beforeunload', func);
   }, [saveState]);
 
   return (
