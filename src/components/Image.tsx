@@ -24,13 +24,10 @@ export default function ReactImage(props: Props): ReactElement {
 
   const [copyState, setCopyState] = useState('Click to copy');
   const copyToClipboard = async () => {
-    // @ts-expect-error Missing
     if (!!navigator.clipboard && !!window.ClipboardItem) {
       const blob = await fetch(src).then((res) => res.blob());
-      // @ts-expect-error Missing
       await navigator.clipboard.write([
         /* eslint-disable no-undef */
-        // @ts-expect-error Missing
         new ClipboardItem({ [blob.type]: blob }),
         /* eslint-enable no-undef */
       ]);

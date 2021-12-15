@@ -2,17 +2,20 @@
   "name": "hologrem-fetcher",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.ts",
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "miniget": "^4.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.13",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "ts-node index.ts",
     "copy": "cp ./files/* ../src/original",
     "all": "npm start && npm run copy"
   },

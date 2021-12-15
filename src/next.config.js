@@ -43,7 +43,7 @@ module.exports = withPWA({
     runtimeCaching: [
       {
         urlPattern: /\/_next\/image/,
-        handler: 'CacheFirst',
+        handler: 'StaleWhileRevalidate',
         options: {
           cacheName: 'images',
           expiration: {
